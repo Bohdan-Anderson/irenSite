@@ -1,0 +1,272 @@
+html,body{
+	padding: 0px;
+	margin: 0px;
+	background-color: #000;
+	height: 100%;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #fff;
+	font-weight: lighter;
+
+	text-rendering:optimizeLegibility;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-smooth: always;
+}
+
+a{
+	color: inherit;
+	text-decoration: inherit;
+}
+
+h2{
+	margin-top: 2em;
+	margin-bottom: 0px;
+}
+ul{
+	width: 100%;
+}
+li{
+	list-style-type: none;
+	width: 100%;
+}
+
+table{
+	width: 100%;
+}
+tr{
+	width: 100%;
+
+}
+td{
+	width: 50%;
+	padding-left: 10px;
+	border-bottom: solid;
+	border-color: #fff;
+	border-width: 1px;	
+}
+
+
+#nav{
+	position: fixed;
+	left: 0;
+	top: 40%;
+	background-color: rgba(0,0,0,0);
+	border-style: solid;
+	border-color: #fff;
+	border-width: 1px;
+
+-webkit-transition: background-color 1s;
+-moz-transition: background-color 1s;
+-o-transition: background-color 1s;
+-ms-transition: background-color 1s;
+transition: background-color 1s;
+}
+
+#nav:hover {
+	background-color: rgba(0,0,0,1);
+	width: auto;
+}
+
+#nav:hover #navContent{
+	display: block;
+}
+#nav:hover #expand{
+	display: none;
+}
+
+#nav #expand{
+	display: block;
+	padding: 1em 1em 1em 1em;
+}
+
+#navContent{
+	padding-right: 1em;
+	display: none;
+}
+
+#nav a{
+	cursor:pointer;
+}
+#nav a:hover{
+	color: #c00;
+}
+
+#nav li ul{
+	height: 0px;
+	overflow: hidden;
+
+	transition: height 1s;
+	-moz-transition: height 1s;
+	-webkit-transition: height 1s;
+	-o-transition: height 1s;
+}
+#nav li #sculture:hover + ul{
+	height: 100%;
+}
+
+
+
+
+
+.container{
+	/*height: 100%;*/
+	min-height: 100%;
+}
+
+#splash{
+	text-align: center;
+	min-height: 100% !important;
+}
+
+#center{
+	text-align: center;
+	display: block;
+}
+
+#splashPad{
+	height: 25%;
+}
+#splashContent{
+	padding-top: 3em;
+}
+
+
+#gallery{
+	max-height: 100%;
+	overflow: hidden;
+}
+
+#galleryNav {
+	text-align: center;
+}
+
+#gallerContent{
+	height: 100%;
+	overflow-y: scroll;
+	padding-top: 2em;
+	padding-bottom: 7.5%;
+}
+
+#piece{
+	float: left;
+	margin-left: 20px;
+	padding: 20px;
+	overflow: hidden;
+}
+
+#piece img{
+	width: 200px;
+	height: auto;
+}
+#piece #imageContainer{
+	overflow: hidden;
+	width: 200px;
+	height: 200px;	
+}
+#piece #explination{
+
+}
+
+#explination #name{
+
+}
+
+#explination #sold{
+}
+
+#gallery #options{
+	padding-top: -webkit-calc(7.5% - 20px);
+	padding-top: -moz-calc(7.5% - 20px);
+	padding-top: -o-calc(7.5% - 20px);
+	padding-top: -ms-calc(7.5% - 20px);
+	padding-top: calc(7.5% - 20px);
+
+	text-align: center;
+}
+
+
+#artistStatment{
+
+}
+
+#artistStatmentContent{	
+	padding-top: 2em;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+	width: 75%;
+	min-width: 420px;
+}
+
+#conTitle{
+	width: 100%;
+}
+#article{
+	margin-left: 5%;
+
+}
+
+#about{
+
+}
+
+#aboutContent{
+	padding-top: 2em;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+	width: 75%;
+	min-width: 420px;
+	padding-bottom: 15%;
+}
+
+#awards{
+	padding-top: 2em;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+	width: 75%;
+	min-width: 420px;
+	padding-bottom: 15%;
+}
+
+#privateCollection{
+	padding-top: 2em;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+	width: 75%;
+	min-width: 420px;
+	padding-bottom: 15%;
+}
+
+#privateCollection td{
+	border: none;
+}
+
+#edAndAffil{
+	padding-top: 2em;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+	width: 75%;
+	min-width: 420px;
+	padding-bottom: 15%
+}
+
+#sculptor{
+
+}
+
+#contact{
+	text-align: center;
+	height: 100%;
+}
+#contactPadding{
+	height: 33%;
+}
+#specialH2{
+	margin-bottom: 0px;
+}
+#clear{
+	clear: both;
+}
