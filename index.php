@@ -71,74 +71,64 @@
 </div>
 <div id="gallery" class="container">
 	<div id="galleryNav">
-		<span>Option one</span>
-		<span>Option two</span>
-		<span>Option three</span>
+<?php
+$cat_args=array(
+	'orderby' => 'name',
+	'order' => 'ASC'
+);
+
+$categories=get_categories($cat_args);
+	foreach($categories as $category) {
+		?>
+		<span><?php echo $category->cat_name; ?></span>
+		<?php
+	}
+	?>
 	</div>
-	<div id="gallerContent">
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<div id="piece" >
-					<a href="<?php if ( has_post_thumbnail() ) {
-							$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
-							echo $large_image_url[0];
-						}?>" rel="lightbox[gallery]" title="<?php the_title(); ?> <br>
+	<div  id="gallerContent">
+	<?php
+	foreach($categories as $category){
+		$args=array(
+			'orderby' => 'title',
+			'order' => 'ASC',
+			'showposts' => -1,
+			'category__in' => array($category->term_id),
+			'caller_get_posts'=>1
+		);
+		$posts=get_posts($args);
+		foreach($posts as $post){
 
-						<?php
-							$posttags = get_the_tags();
-							if ($posttags) {
-								echo "Medium: ";
-								foreach($posttags as $tag) {
-									//if ($tag !== end($posttags)){
-										if(count($posttags) <2){
-											echo $tag->name . ' ';
-										}elseif($tag === end($posttags)){
-											echo $tag->name . ' ';
-										} else {
-											echo $tag->name . ' & ';
-										}
-									//}
-								}
-							}
-						?>
+			$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
+			echo $category->cat_name;
+			echo $large_image_url[0];
+			$posttags = get_the_tags();
+			if ($posttags) {
+				echo "Medium: ";
+				foreach($posttags as $tag) {
+					if(count($posttags) <2){
+						echo $tag->name . ' ';
+					}elseif($tag === end($posttags)){
+						echo $tag->name . ' ';
+					} else {
+						echo $tag->name . ' & ';
+					}
+				}
+			}
 
-						<br>
-						<?php
-							$custom_fields = get_post_custom();
-							$my_custom_field = $custom_fields['my_meta_box_check'];
-							foreach ( $my_custom_field as $key => $value )
-								if ($value == "on") {
-									echo "sold";
-								} else {
+			$custom_fields = get_post_custom();
+			$my_custom_field = $custom_fields['my_meta_box_check'];
+			foreach ( $my_custom_field as $key => $value )
+				if ($value == "on") {
+					echo "sold";
+				} else {
 
-								}
-						?>">
-					<div id="imageContainer">
-						<img src="
-						<?php if ( has_post_thumbnail() ) {
-							$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
-							echo $large_image_url[0];
-						}?>">
-					</div>
-					<div id="explination">
-						<span id="name"><?php the_title(); ?></span>
-						<br>
-						<span id="sold">
-							<?php
-								$custom_fields = get_post_custom();
-								$my_custom_field = $custom_fields['my_meta_box_check'];
-								foreach ( $my_custom_field as $key => $value )
-									if ($value == "on") {
-										echo "sold";
-									} else {
+				}
+			echo "<br>";
 
-									}
-							?>
-						</span>
-					</div>
-				</a>
-			</div>
-		<?php endwhile; ?>
-		<?php endif; ?>
+		}
+	}
+?>
+
 	<div id="clear"></div>
 	</div>
 	<div id="gellerContentDynamic"></div>
